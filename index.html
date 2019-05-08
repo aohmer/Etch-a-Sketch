@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        
+        function gen(el) {
+            let container = document.createElement("div");
+            container.className = "container";
+            for (let i = 0; i < 16; i++) {
+                let row = document.createElement("div");
+                // row.style.border = "solid 1px black";
+                row.style.lineHeight = "1em";
+                row.style.height = "1em";
+                row.className = "row";
+                row.id = "row" + i;
+                
+                for (let k = 0; k < 16; k++) {
+                    let cell = document.createElement('div');
+                    cell.className = "cell";
+                    cell.style.border = "solid 1px black";
+                    cell.style.boxSizing = "border-box";
+                    cell.style.display = "inline-block";
+                    cell.style.width = "6.25%";
+                    cell.style.height = "1em";
+                    row.appendChild(cell);    
+                    
+                };
+                container.appendChild(row);
+            };
+            el.appendChild(container);
+        };
+        gen(document.body);
+    </script>
+</body>
+</html>
