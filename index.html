@@ -8,6 +8,7 @@
 </head>
 <body>
     <link rel="stylesheet" href="style.css">
+    <button type="reset" onclick="resetCells()">Reset</button>
     <script>
     
         function gen(el) {
@@ -51,6 +52,12 @@
                 event.target.style.borderColor = "red";
                 event.target.style.backgroundColor = "red";
             }, false)   
+        }
+        function resetCells() {
+            for (var i = 0 ; i < block.length; i++) {
+                block[i].style.borderColor = "black";
+                block[i].style.backgroundColor = "white";
+            }
         }
     </script>
 </body>
