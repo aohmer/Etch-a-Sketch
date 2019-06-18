@@ -9,7 +9,7 @@
 <body>
     <link rel="stylesheet" href="style.css">
     <script>
-        
+    
         function gen(el) {
             let container = document.createElement("div");
             container.className = "container";
@@ -37,6 +37,21 @@
             el.appendChild(container);
         };
         gen(document.body);
+
+        let block = document.getElementsByClassName("cell");
+        
+        // console.log(block);
+        // block[0].addEventListener("click", mouseOver());
+        // function mouseOver() {
+        //     console.log("mouse over");
+        // }
+
+        for (var i = 0 ; i < block.length; i++) {
+            block[i].addEventListener('mouseover' , (event) => {
+                event.target.style.borderColor = "red";
+                event.target.style.backgroundColor = "red";
+            }, false)   
+        }
     </script>
 </body>
 </html>
