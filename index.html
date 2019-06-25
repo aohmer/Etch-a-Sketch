@@ -7,8 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        .button {
+            background: green;
+            color: whitesmoke;
+            padding: 1em 2em;
+            margin: auto;
+            display: block;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgb(56, 83, 1);
+            border: none;
+        }
+        
+        .button:active {
+            transform: translateY(-5px);
+            box-shadow: 0 0 0;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
-    <button type="reset" onclick="resetCells()">Reset</button>
+    <button class="button" type="reset" onclick="resetCells()">Reset</button>
     <script>
     
         function gen(el) {
