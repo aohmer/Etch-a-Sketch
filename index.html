@@ -24,59 +24,75 @@
             transform: translateY(-5px);
             box-shadow: 0 0 0;
         }
+        #container {
+            width: 960px;
+            height: 960px;
+            margin: auto;
+            border: solid black;
+        }
     </style>
     <link rel="stylesheet" href="style.css">
     <button class="button" type="reset" onclick="resetCells()">Reset</button>
+    <div id="container"></div>
     <script>
+        const container = document.querySelector("#container");
+        let numRows = 16;
+
+        function resetCells() {
+            while (container.firstChild){
+            container.removeChild(container.firstChild);
+            }
+            // for (var i = 0 ; i < block.length; i++) {
+            //     block[i].style.borderColor = "black";
+            //     block[i].style.backgroundColor = "white";
+            // }
+            numRows = prompt("How many columns and rows do you want?");
+            gen(document.body);
+        }
     
         function gen(el) {
-            let container = document.createElement("div");
-            container.className = "container";
-            for (let i = 0; i < 16; i++) {
+            // let container = document.createElement("div");
+            // container.className = "container";
+            let height = (900 / numRows) + 'px';
+            let width = (900 / numRows) + 'px';
+            for (let i = 0; i < numRows; i++) {
                 let row = document.createElement("div");
                 // row.style.border = "solid 1px black";
-                row.style.lineHeight = "1em";
-                row.style.height = "1em";
+                row.style.lineHeight = height;
+                row.style.height = height;
                 row.className = "row";
                 row.id = "row" + i;
                 
-                for (let k = 0; k < 16; k++) {
+                for (let k = 0; k < numRows; k++) {
                     let cell = document.createElement('div');
                     cell.className = "cell";
-                    cell.style.border = "solid 1px black";
+                    cell.style.border = "solid 0px";
                     cell.style.boxSizing = "border-box";
                     cell.style.display = "inline-block";
-                    cell.style.width = "6.25%";
-                    cell.style.height = "1em";
+                    cell.style.width = width;
+                    cell.style.height = height;
                     row.appendChild(cell);    
                     
                 };
                 container.appendChild(row);
             };
             el.appendChild(container);
-        };
-        gen(document.body);
 
-        let block = document.getElementsByClassName("cell");
-        
-        // console.log(block);
-        // block[0].addEventListener("click", mouseOver());
-        // function mouseOver() {
-        //     console.log("mouse over");
-        // }
+            let block = document.getElementsByClassName("cell");
 
-        for (var i = 0 ; i < block.length; i++) {
+            for (var i = 0 ; i < block.length; i++) {
             block[i].addEventListener('mouseover' , (event) => {
                 event.target.style.borderColor = "red";
                 event.target.style.backgroundColor = "red";
-            }, false)   
+            }, false)
         }
-        function resetCells() {
-            for (var i = 0 ; i < block.length; i++) {
-                block[i].style.borderColor = "black";
-                block[i].style.backgroundColor = "white";
-            }
-        }
+        };
+        gen(document.body);
+        
+        
+
+        
+        
     </script>
 </body>
 </html>
