@@ -8,6 +8,17 @@
 </head>
 <body>
     <style>
+        html {
+            background-color: lightblue;
+        }
+
+        h1 {
+            font-family: 'VT323', monospace;
+            margin: auto;
+            text-align: center;
+            font-size: 4em;
+        }
+
         .button {
             background: green;
             color: whitesmoke;
@@ -25,13 +36,17 @@
             box-shadow: 0 0 0;
         }
         #container {
-            width: 960px;
-            height: 960px;
+            width: 800px;
+            height: 800px;
             margin: auto;
             border: solid black;
+            background-color: beige;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
+
+    <h1>Etch-A-Sketch</h1>
     <button class="button" type="reset" onclick="resetCells()">Reset</button>
     <div id="container"></div>
     <script>
@@ -53,8 +68,8 @@
         function gen(el) {
             // let container = document.createElement("div");
             // container.className = "container";
-            let height = (900 / numRows) + 'px';
-            let width = (900 / numRows) + 'px';
+            let height = (800 / numRows) + 'px';
+            let width = (800 / numRows) + 'px';
             for (let i = 0; i < numRows; i++) {
                 let row = document.createElement("div");
                 // row.style.border = "solid 1px black";
@@ -82,8 +97,8 @@
 
             for (var i = 0 ; i < block.length; i++) {
             block[i].addEventListener('mouseover' , (event) => {
-                event.target.style.borderColor = "red";
-                event.target.style.backgroundColor = "red";
+                event.target.style.borderColor = "rebeccapurple";
+                event.target.style.backgroundColor = "rebeccapurple";
             }, false)
         }
         };
